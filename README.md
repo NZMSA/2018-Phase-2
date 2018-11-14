@@ -29,6 +29,11 @@ Please install the software *before* you attend phase 1 training. We will not sp
 
 If you do not have this software installed, MSPs have clear instructions to NOT help you install it on the day.
 
+* Visual Studio Community 2017
+* When installing ensure ASP.NET and web development is selected
+* Azure Account
+* .NET Core 2.1 SDK or later
+* Optional - DB Broswer for SQLite
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [NodeJS](https://nodejs.org/en/download/)
 * [NPM (Node Package Manager)](https://www.npmjs.com/get-npm)
