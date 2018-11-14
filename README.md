@@ -1,5 +1,5 @@
 # Phase 2 Training 2018
-The official repository and source of knowledge for MSA students taking part in MSA 2018 Phase 1 Training. 
+The official repository and source of knowledge for MSA students taking part in MSA 2018 Phase 2 Training. 
 
 # Assignment
 
@@ -25,7 +25,7 @@ We will only be providing written documentation on GitHub for each section taugh
 
 # Software Needed (IMPORTANT)
 
-Please install the software *before* you attend phase 1 training. We will not spend time going over installation. If you do not have the below software installed, you will be left behind. 
+Please install the software *before* you attend phase 2 training. We will not spend time going over installation. If you do not have the below software installed, you will be left behind. 
 
 If you do not have this software installed, MSPs have clear instructions to NOT help you install it on the day.
 
@@ -33,7 +33,7 @@ If you do not have this software installed, MSPs have clear instructions to NOT 
 * When installing ensure ASP.NET and web development is selected
 * Azure Account
 * .NET Core 2.1 SDK or later
-* Optional - DB Broswer for SQLite
+* Optional - DB Browser for SQLite
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [NodeJS](https://nodejs.org/en/download/)
 * [NPM (Node Package Manager)](https://www.npmjs.com/get-npm)
@@ -65,7 +65,7 @@ Some helpful links:
 
 TypeScript is a free, open-source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript and adds optional static typing and class-based object-oriented programming to the language.
 
-We will be using [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter) maintained by Microsoft for phase 1 training. 
+We will be using [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter) maintained by Microsoft for phase 2 training. 
 
 Other useful NodeJS Links:
 
