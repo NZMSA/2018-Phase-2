@@ -25,6 +25,11 @@ Before you proceed, make sure you download / clone the starter project and `npm 
 
 ## 2. Starter project overview
 
+In this project, you'll want to take a look at these files
+- `App.tsx` - this is the main component class and renders the header, and two components `MemeDetail` and `MemeList`.
+- `MemeDetail.tsx` - this component renders information relating to a specific meme (meme image, title etc).
+- `MemeList.tsx` - this component renders the list of memes as a table.
+- `index.css` - main stylesheet.
 
 
 ## 3. Retrieve all memes and search by tag (GET)
@@ -130,7 +135,7 @@ private handleFileUpload(fileList: any) {
 ```javascript
 <input type="file" onChange={this.methodNotImplemented} className="form-control-file" id="meme-image-input" />
 ```
-and call the method like this:
+and change it so it looks like this:
 ```javascript
 <input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
 ```
@@ -140,7 +145,7 @@ and call the method like this:
 this.handleFileUpload = this.handleFileUpload.bind(this)
 ```
 
-When we choose an image, we set it as the state of `uploadFileList`. Now we can make the POST request!
+When we choose an image, we now set it as the state of `uploadFileList`. Now we're ready to make the POST request!
 
 4. Add this function to `App.tsx` (below `handleFileUpload`)
 ```javascript
@@ -177,6 +182,7 @@ private uploadMeme() {
     })
 }
 ``` 
+
 We get the value of the 3 input fields and make a POST request. If there is an error, we show that as an alert. Otherwise we reload the page.
 
 5. Bind `uploadMeme` to self by adding this to the constructor of `App.tsx`
@@ -194,13 +200,13 @@ to this
 <button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
 ```
 
-7. Now that we're not using `methodNotImplemented` function, go ahead and delete that function (lint will complain if we keep it there).
+7. Now that we're not using the `methodNotImplemented` function, go ahead and delete it (lint will complain if we keep it there).
 
 That's it for POST request - Try uploading a meme!
 
 ## 5. Edit existing meme (PUT)
 
-We're now going to try edit the title and / or the tag of an existing meme using the following endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme you want to edit. Unlike previous requests, we need to pass in all values relating to that specific meme such as uploaded date, url, width and height. 
+We're now going to try edit the title and/or the tag of an existing meme using the following endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme you want to edit. Unlike previous requests, we need to pass in all values relating to that specific meme such as uploaded date, url, width and height. 
 
 1. In `MemeDetail.tsx` add the following (below `downloadMeme`)
 ```javascript
@@ -257,9 +263,9 @@ Click on a meme, press 'edit' and try editing a meme!
 
 ## 6. Delete existing meme (DELETE)
 
-To delete a meme, we use this endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme to delete.
+To delete a meme, we use this endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme we want to delete.
 
-1. In `MemeDetail.tsx`, add the following function
+1. In `MemeDetail.tsx`, add the following function (below `updateMeme`)
 ```javascript
 private deleteMeme(id: any) {
     const url = "http://phase2apitest.azurewebsites.net/api/meme/" + id
@@ -278,6 +284,7 @@ private deleteMeme(id: any) {
     })
 }
 ```
+This action is the simplest out of the 4. We make the DELETE request and reload the page. If there is an error, we show it in an alert.
 
 2. We want to call this method when the user clicks 'delete'. Find this snippet
 ```javascript
@@ -292,3 +299,5 @@ and change it so it looks like this
 
 Try deleting a meme (careful which meme you delete because there's no undo!)
 
+
+## Congrats! :tada: you now have your own personal meme bank - Next up, API!
