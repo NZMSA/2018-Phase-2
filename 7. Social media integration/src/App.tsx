@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Modal from 'react-responsive-modal';
 import './App.css';
+import { Comments, FacebookProvider } from 'react-facebook';
+import Modal from 'react-responsive-modal';
 import MemeDetail from './components/MemeDetail';
 import MemeList from './components/MemeList';
 import PatrickLogo from './patrick-logo.png';
@@ -71,7 +72,11 @@ class App extends React.Component<{}, IState> {
 					<button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
 				</form>
 			</Modal>
+			<FacebookProvider appId="785341171812426">
+        <Comments href="http://www.facebook.com" />
+      </FacebookProvider>
 		</div>
+		
 		);
 	}
 
