@@ -13,7 +13,7 @@ Note: Just a heads up, this guide may not be extensive. Everything will be cover
 
 ## 1. Before you start 
 
-Before you start coding away, take a moment to have a look through this section of the repo. You'll notice that there are two folders - 'Starter Project' and 'Final Project'. If you want to see what the final output will look like or have any issues following this documentation, go ahead and `npm install` then `npm start` inside that folder. 
+Before you start coding away, take a moment to have a look through this section of the repo. You'll notice that there are two folders - 'Starter Project' and 'Completed Project'. If you want to see what the final output will look like or have any issues following this documentation, go ahead and `npm install` then `npm start` inside that folder. 
 
 In the starter code, the structure, styling and basic functions have all been provided (otherwise this document would be massive!). Since you should all be familiar with React js, we'll be focusing on consuming the API for all of the CRUD (Create, Read, Update, Delete) operations. Specifically, they are:
 - CREATE: Uploading a meme (POST)
