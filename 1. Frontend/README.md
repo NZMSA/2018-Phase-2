@@ -60,7 +60,7 @@ To retrieve all memes, we're going to use this endpoint : `http://phase2apitest.
 
 We can also append query parameters such as `tag?='spongebob'` if we want to get all memes with the tag 'spongebob'
 
-1. To fetch memes, add this function to `App.tsx` (just below `selectNewMeme(...)`)
+:page_with_curl: 1. To fetch memes, add this function to `App.tsx` (just below `selectNewMeme(...)`)
 
 ```javascript
 private fetchMemes(tag: any) {
@@ -91,7 +91,7 @@ private fetchMemes(tag: any) {
 
 Now, we simply need to bind the method to self and call it in the constructor.
 
-2. Inside the constructor method in `App.tsx`, add the following
+:page_with_curl: 2. Inside the constructor method in `App.tsx`, add the following
 ```javascript
 this.fetchMemes = this.fetchMemes.bind(this)
 this.fetchMemes("")	
@@ -100,7 +100,7 @@ Now if you run the app, you should see all the memes -  try clicking on the meme
 
 To search by tag, we need to pass `fetchMeme(...)` as a prop to the `MemeList.tsx` component.
 
-3. In `App.tsx`, find this snippet 
+:page_with_curl: 3. In `App.tsx`, find this snippet 
 ```javascript
 <MemeList memes={this.state.memes} selectNewMeme={this.selectNewMeme} searchByTag={this.methodNotImplemented}/>
 ```
@@ -208,7 +208,7 @@ That's it for POST request - Try uploading a meme!
 
 We're now going to try edit the title and/or the tag of an existing meme using the following endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme you want to edit. Unlike previous requests, we need to pass in all values relating to that specific meme such as uploaded date, url, width and height. 
 
-1. In `MemeDetail.tsx` add the following (below `downloadMeme`)
+:page_with_curl: 1. In `MemeDetail.tsx` add the following (below `downloadMeme`)
 ```javascript
 private updateMeme(){
     const titleInput = document.getElementById("meme-edit-title-input") as HTMLInputElement
@@ -246,12 +246,12 @@ private updateMeme(){
 }
 ```
 
-2. Bind this method to self by adding this to the constructor of `MemeDetail.tsx`
+:page_with_curl: 2. Bind this method to self by adding this to the constructor of `MemeDetail.tsx`
 ```javascript
 this.updateMeme = this.updateMeme.bind(this)
 ```
 
-3. We want to call the method when the user clicks on 'Save' after opening the edit modal. Find this snippet of code
+:page_with_curl: 3. We want to call the method when the user clicks on 'Save' after opening the edit modal. Find this snippet of code
 ```javascript
 <button type="button" className="btn" onClick={this.methodNotImplemented}>Save</button>
 ```
@@ -265,7 +265,7 @@ Click on a meme, press 'edit' and try editing a meme!
 
 To delete a meme, we use this endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme we want to delete.
 
-1. In `MemeDetail.tsx`, add the following function (below `updateMeme`)
+:page_with_curl: 1. In `MemeDetail.tsx`, add the following function (below `updateMeme`)
 ```javascript
 private deleteMeme(id: any) {
     const url = "http://phase2apitest.azurewebsites.net/api/meme/" + id
@@ -286,7 +286,7 @@ private deleteMeme(id: any) {
 ```
 This action is the simplest out of the 4. We make the DELETE request and reload the page. If there is an error, we show it in an alert.
 
-2. We want to call this method when the user clicks 'delete'. Find this snippet
+:page_with_curl: 2. We want to call this method when the user clicks 'delete'. Find this snippet
 ```javascript
 <div className="btn btn-primary btn-action" onClick={this.methodNotImplemented.bind(this, currentMeme.id)}>Delete </div>
 ```
@@ -295,7 +295,7 @@ and change it so it looks like this
 <div className="btn btn-primary btn-action" onClick={this.deleteMeme.bind(this, currentMeme.id)}>Delete </div>
 ```
 
-3. Now that we're not using `methodNotImplemented`, we can delete it
+:page_with_curl: 3. Now that we're not using `methodNotImplemented`, we can delete it
 
 Try deleting a meme (careful which meme you delete because there's no undo!)
 
