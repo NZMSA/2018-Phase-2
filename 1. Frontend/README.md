@@ -32,7 +32,7 @@ In this project, you'll want to take a look at these files
 - `index.css` - main stylesheet.
 
 
-## 3. Retrieve all memes and search by tag (GET)
+## 3. Retrieve all memes and search by tag (GET) :inbox_tray:
 To retrieve all memes, we're going to use this endpoint : `http://phase2apitest.azurewebsites.net/api/meme` which returns a JSON in this format: 
 
 ```json
@@ -115,7 +115,7 @@ Run it and now you should be able to search by tag!
 
 On a high level, we're passing `fetchMemes` as a callback into the `MemeList` component. When the user presses 'Search', we get the textbox value and call `fetchMeme` with the tag value.
 
-## 4. Add New Meme (POST)
+## 4. Add New Meme (POST) :mailbox_with_mail:
 
 If you press 'Add Meme' button on the top right corner, you'll see that a modal appears with input boxes for title, tag and image. Using these 3 inputs, we're going to make a POST request using the following endpoint: `http://phase2apitest.azurewebsites.net/api/meme/upload`.
 
@@ -204,7 +204,7 @@ to this
 
 That's it for POST request - Try uploading a meme!
 
-## 5. Edit existing meme (PUT)
+## 5. Edit existing meme (PUT) :pencil:
 
 We're now going to try edit the title and/or the tag of an existing meme using the following endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme you want to edit. Unlike previous requests, we need to pass in all values relating to that specific meme such as uploaded date, url, width and height. 
 
@@ -261,7 +261,7 @@ and change it so it looks like this
 ```
 Click on a meme, press 'edit' and try editing a meme!
 
-## 6. Delete existing meme (DELETE)
+## 6. Delete existing meme (DELETE) :put_litter_in_its_place:
 
 To delete a meme, we use this endpoint: `http://phase2apitest.azurewebsites.net/api/meme/[id]` where id is the id of the meme we want to delete.
 
@@ -300,4 +300,4 @@ and change it so it looks like this
 Try deleting a meme (careful which meme you delete because there's no undo!)
 
 
-## :tada: Congrats!  you now have your own personal meme bank - Next up, API!
+## :tada: Congrats! you now have your own personal meme bank - Next up, API!
