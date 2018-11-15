@@ -123,7 +123,7 @@ This endpoint takes in `Title`, `Tags` and `image` form data key value pair in t
 
 Before we can make the POST request, we need to get the image file. 
 
-1. Add this function to `App.tsx` (below `fetchMemes`)
+:page_with_curl: 1. Add this function to `App.tsx` (below `fetchMemes`)
 ```javascript
 private handleFileUpload(fileList: any) {
     this.setState({
@@ -131,7 +131,7 @@ private handleFileUpload(fileList: any) {
     })
 }
 ```
-2. Now we need to call this method. Find this snippet
+:page_with_curl: 2. Now we need to call this method. Find this snippet
 ```javascript
 <input type="file" onChange={this.methodNotImplemented} className="form-control-file" id="meme-image-input" />
 ```
@@ -140,14 +140,14 @@ and change it so it looks like this:
 <input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
 ```
 
-3. Bind `uploadFileList` to self by adding the following inside the constructor of `App.tsx`
+:page_with_curl: 3. Bind `uploadFileList` to self by adding the following inside the constructor of `App.tsx`
 ```javascript
 this.handleFileUpload = this.handleFileUpload.bind(this)
 ```
 
 When we choose an image, we now set it as the state of `uploadFileList`. Now we're ready to make the POST request!
 
-4. Add this function to `App.tsx` (below `handleFileUpload`)
+:page_with_curl: 4. Add this function to `App.tsx` (below `handleFileUpload`)
 ```javascript
 private uploadMeme() {
     const titleInput = document.getElementById("meme-title-input") as HTMLInputElement
@@ -185,13 +185,13 @@ private uploadMeme() {
 
 We get the value of the 3 input fields and make a POST request. If there is an error, we show that as an alert. Otherwise we reload the page.
 
-5. Bind `uploadMeme` to self by adding this to the constructor of `App.tsx`
+:page_with_curl: 5. Bind `uploadMeme` to self by adding this to the constructor of `App.tsx`
 ```javascript
 this.uploadMeme = this.uploadMeme.bind(this)
 
 ```
 
-6. Call `uploadMeme` when the 'upload' button is pressed by changing this
+:page_with_curl: 6. Call `uploadMeme` when the 'upload' button is pressed by changing this
 ```javascript
 <button type="button" className="btn" onClick={this.methodNotImplemented}>Upload</button>
 ```
@@ -200,7 +200,7 @@ to this
 <button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
 ```
 
-7. Now that we're not using the `methodNotImplemented` function, go ahead and delete it (lint will complain if we keep it there).
+:page_with_curl: 7. Now that we're not using the `methodNotImplemented` function, go ahead and delete it (lint will complain if we keep it there).
 
 That's it for POST request - Try uploading a meme!
 
@@ -300,4 +300,4 @@ and change it so it looks like this
 Try deleting a meme (careful which meme you delete because there's no undo!)
 
 
-## Congrats! :tada: you now have your own personal meme bank - Next up, API!
+## :tada: Congrats!  you now have your own personal meme bank - Next up, API!
