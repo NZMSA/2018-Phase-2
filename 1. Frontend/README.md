@@ -142,7 +142,7 @@ this.handleFileUpload = this.handleFileUpload.bind(this)
 
 When we choose an image, we set it as the state of `uploadFileList`. Now we can make the POST request!
 
-4. Add this function to `App.tsx`
+4. Add this function to `App.tsx` (below `handleFileUpload`)
 ```javascript
 private uploadMeme() {
     const titleInput = document.getElementById("meme-title-input") as HTMLInputElement
