@@ -2,7 +2,7 @@
 
 Note: Just a heads up, this guide may not be extensive. Everything will be covered in the in person workshop, of which items may be missed in here. 
 
-### Contents
+### Contents :bookmark_tabs:
 1. Before you start
 2. Starter project overview
 3. Retrieve all memes and search by tag (GET)
@@ -11,7 +11,7 @@ Note: Just a heads up, this guide may not be extensive. Everything will be cover
 6. Delete existing meme (DELETE)
 
 
-## 1. Before you start 
+## 1. Before you start :bulb:
 
 Before you start coding away, take a moment to have a look through this section of the repo. You'll notice that there are two folders - 'Starter Project' and 'Completed Project'. If you want to see what the final output will look like or have any issues following this documentation, go ahead and `npm install` then `npm start` inside that folder. 
 
@@ -23,7 +23,7 @@ In the starter code, the structure, styling and basic functions have all been pr
 
 Before you proceed, make sure you download / clone the starter project and `npm install` (this might take some time). We'll be building on this project!
 
-## 2. Starter project overview
+## 2. Starter project overview :eyeglasses:
 
 In this project, you'll want to take a look at these files
 - `App.tsx` - this is the main component class and renders the header, and two components `MemeDetail` and `MemeList`.
