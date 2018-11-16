@@ -96,8 +96,11 @@ After this, you then need to click on the "Deploy Azure App Service" button, as 
 
 ![AzureAppService](https://i.gyazo.com/8e57bff68be842d4e2ab17565758706d.png "azure")
 
-Change the package or folder field to what is shown below, and replace the contents of the brackets with your GitHub username followed by your repository name. Make sure you remove the brackets after too.
-D:\a\r1\a\_{GITHUB_USERNAME}.{REPOSITORY_NAME}\drop
+Change the package or folder field to what is shown below:
+```
+$(System.DefaultWorkingDirectory)
+```
+
 
 Now, save the contents of this and go back to your "Pipelines" and click "Deploy". After it has finished building, we need to go back to Azure.
 
