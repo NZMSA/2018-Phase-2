@@ -49,11 +49,17 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+  
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    archiveFile: '$(System.DefaultWorkingDirectory)/build.zip' 
+
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(System.DefaultWorkingDirectory)' 
-    artifactName: 'drop' 
+    pathtoPublish: '$(System.DefaultWorkingDirectory)/build.zip' 
+    artifactName: 'build' 
 
 ```
 
@@ -96,9 +102,9 @@ After this, you then need to click on the "Deploy Azure App Service" button, as 
 
 ![AzureAppService](https://i.gyazo.com/8e57bff68be842d4e2ab17565758706d.png "azure")
 
-Change the package or folder field to what is shown below:
+Leave the package slot as it is, we will not be changing that.
 ```
-$(System.DefaultWorkingDirectory)
+$(System.DefaultWorkingDirectory/**/*.zip)
 ```
 
 
