@@ -22,7 +22,9 @@ class App extends React.Component<{}, IState> {
 			currentMeme: {"id":0, "title":"Loading ","url":"","tags":"⚆ _ ⚆","uploaded":"","width":"0","height":"0"},
 			memes: [],
 			open: false,
-			uploadFileList: null
+			uploadFileList: null,
+			authenticated: false,
+			refCamera: React.createRef(),
 		}     
 		
 		this.fetchMemes("")
@@ -30,51 +32,74 @@ class App extends React.Component<{}, IState> {
 		this.handleFileUpload = this.handleFileUpload.bind(this)
 		this.fetchMemes = this.fetchMemes.bind(this)
 		this.uploadMeme = this.uploadMeme.bind(this)
-		
+		this.authenticate = this.authenticate.bind(this)
 	}
 
 	public render() {
 		const { open } = this.state;
+		const { authenticated } = this.state
 		return (
-		<div>
-			<div className="header-wrapper">
-				<div className="container header">
-					<img src={PatrickLogo} height='40'/>&nbsp; My Meme Bank - MSA 2018 &nbsp;
-					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Meme</div>
-				</div>
-			</div>
-			<div className="container">
-				<div className="row">
-					<div className="col-7">
-						<MemeDetail currentMeme={this.state.currentMeme} />
-					</div>
-					<div className="col-5">
-						<MemeList memes={this.state.memes} selectNewMeme={this.selectNewMeme} searchByTag={this.fetchMemes}/>
-					</div>
-				</div>
-			</div>
-			<Modal open={open} onClose={this.onCloseModal}>
-				<form>
-					<div className="form-group">
-						<label>Meme Title</label>
-						<input type="text" className="form-control" id="meme-title-input" placeholder="Enter Title" />
-						<small className="form-text text-muted">You can edit any meme later</small>
-					</div>
-					<div className="form-group">
-						<label>Tag</label>
-						<input type="text" className="form-control" id="meme-tag-input" placeholder="Enter Tag" />
-						<small className="form-text text-muted">Tag is used for search</small>
-					</div>
-					<div className="form-group">
-						<label>Image</label>
-						<input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
-					</div>
+			<div>
 
-					<button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
-				</form>
-			</Modal>
+				{(!authenticated) ?
+					<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
+						<Webcam
+							audio={false}
+							screenshotFormat="image/jpeg"
+							ref={this.state.refCamera}
+						/>
+						<div className="row nav-row">
+							<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
+						</div>
+					</Modal> : ""}
+
+				{(authenticated) ?	
+				<div>
+					<div className="header-wrapper">
+						<div className="container header">
+							<img src={PatrickLogo} height='40' />&nbsp; My Meme Bank - MSA 2018 &nbsp;
+					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Meme</div>
+						</div>
+					</div>
+					<div className="container">
+						<div className="row">
+							<div className="col-7">
+								<MemeDetail currentMeme={this.state.currentMeme} />
+							</div>
+							<div className="col-5">
+								<MemeList memes={this.state.memes} selectNewMeme={this.selectNewMeme} searchByTag={this.fetchMemes} />
+							</div>
+						</div>
+					</div>
+					<Modal open={open} onClose={this.onCloseModal}>
+						<form>
+							<div className="form-group">
+								<label>Meme Title</label>
+								<input type="text" className="form-control" id="meme-title-input" placeholder="Enter Title" />
+								<small className="form-text text-muted">You can edit any meme later</small>
+							</div>
+							<div className="form-group">
+								<label>Tag</label>
+								<input type="text" className="form-control" id="meme-tag-input" placeholder="Enter Tag" />
+								<small className="form-text text-muted">Tag is used for search</small>
+							</div>
+							<div className="form-group">
+								<label>Image</label>
+								<input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
+							</div>
+
+							<button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
+						</form>
+					</Modal>
+				</div>
+				: ""}
 		</div>
 		);
+	}
+
+	// Authenticate
+	private authenticate() {
+		// const screenshot = this.state.refCamera.current.getScreenshot();
 	}
 
 	// Modal open
