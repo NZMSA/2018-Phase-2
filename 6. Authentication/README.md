@@ -38,8 +38,6 @@ Enter a project name and description -> Create project.
 
 <img src="images/2.1.png"  width="400"/>
 
-![customVisionModelChart](images/2.1.png=200x)
-
 We will revisit this soon.
 
 ## 3. Add camera integration
@@ -52,4 +50,45 @@ Reference: https://www.npmjs.com/package/react-webcam
 ```
 npm install react-webcam
 ```
+
+2. Only after the user is authenticated then the website should be shown, therefore we will launch the camera on our main page. 
+
+3. In App.tsx, we will make the following changes to add the camera. Add an import statement at the top to add webcam module.
+
+```
+import * as Webcam from "react-webcam";
+```
+
+4. We will add 2 new states to this **App.tsx** states interface. 
+- **authenticated: boolean,**   #represent state whether the user is authenticated or not.
+- **refCamera: any,**           #Store a reference pointer to the camera, allow us to invoke a method getScreenShot() later on.
+
+```
+interface IState {
+	currentMeme: any,
+	memes: any[],
+	open: boolean,
+	uploadFileList: any,
+	authenticated: boolean,
+	refCamera: any
+}
+```
+and set the states in the constructor as followed.
+
+```
+class App extends React.Component<{}, IState> {
+	constructor(props: any) {
+        super(props)
+        this.state = {
+			currentMeme: {"id":0, "title":"Loading ","url":"","tags":"⚆ _ ⚆","uploaded":"","width":"0","height":"0"},
+			memes: [],
+			open: false,
+			uploadFileList: null,
+			authenticated: false,
+			refCamera: React.createRef(),
+		}     
+```
+
+
+
 
