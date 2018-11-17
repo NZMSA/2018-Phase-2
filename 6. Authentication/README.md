@@ -24,8 +24,9 @@ $git status
 $git checkout -b feature/authentication
 $git status
 #On branch feature/authentication
+git branch --set-upstream feature/authentication
 ```
-This creates a new branch locally and switch to it. 
+This creates a new branch locally and switch to it. As this branch is not on GitHub yet, Set-upstream will create this branch on GitHub.
 
 Now we are ready for development. :)
 
@@ -35,7 +36,9 @@ Navigate to: https://www.customvision.ai/ and sign in with your account.
 
 Enter a project name and description -> Create project.
 
-![customVisionModelChart](images/2.1.png)
+<img src="images/2.1.png"  width="400"/>
+
+![customVisionModelChart](images/2.1.png=200x)
 
 We will revisit this soon.
 
