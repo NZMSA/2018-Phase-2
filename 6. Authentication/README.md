@@ -157,6 +157,6 @@ Apply conditional statement to render the mainpage section only if you are authe
 
 <details><summary>Screenshot</summary>
 <p>
-<img src="images/3.1.PNG"/>
+<img src="images/3.2.PNG"/>
 </p>
 </details>
