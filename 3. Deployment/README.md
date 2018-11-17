@@ -105,7 +105,7 @@ After this, you then need to click on the "Deploy Azure App Service" button, as 
 
 Leave the package slot as it is, we will not be changing that.
 ```
-$(System.DefaultWorkingDirectory/**/*.zip)
+$(System.DefaultWorkingDirectory)/**/*.zip
 ```
 
 
@@ -115,8 +115,16 @@ Now, save the contents of this and go back to your "Pipelines" and click "Deploy
 Go back to "Application Settings" as shown previously, and scroll all the way down to "Virtual Path". There should be a field called  "Physical Path". Change the physical path to this string.
 
 ```
-site\wwwroot\build
+site\www\root\s\build
 ```
+
+This can change, so what I recommend doing is going into your advanced tools, press GO and then a window called KUDU services should open up. From there you should go into debug console and CMD. Go down the path
+```
+site -> wwwroot 
+```
+You should see your build files over there, if there are other foldlers try to navigate through them til you can see your source code and built files. 
+
+You then want to copy the path that you followed to find your built files into your azure app settings.
 
 Your website should be up and running now! If the images are not displaying, then you need to replace https to just http in your URL and it should be working.
 
