@@ -7,13 +7,13 @@ Start by adding a MSTest project to the existing solution.
 
 File -> New -> Project
 
-![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/creating-unit-test-project.png)
+![](http://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/creating-unit-test-project.PNG)
 
 
 Navigate to: MSTest Test Project (.Net Core)
 Visual C# -> Web -> .Net Core
 
-![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/creating-MSunit-test-project-2.png)
+![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/creating-MSunit-test-project-2.PNG)
 
 select "MSTest Test Project (.Net Core)". Make sure to select "Add to solution" as shown in the image above. Then click "OK" to continue.
 
@@ -21,10 +21,10 @@ select "MSTest Test Project (.Net Core)". Make sure to select "Add to solution" 
 
 Start by adding a reference from the newly created test project to the API project. By right clicking on the test project solution and then: Add -> Reference...
 
-![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/add_reference.png)
+![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/add_reference.PNG)
 
 In the Reference Manager window select the API project as show in the image below. Then select "OK".
-![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/adding_reference.png)
+![](https://raw.githubusercontent.com/NZMSA/2018-Phase-2/master/4.%20Unit%20testing/images/adding_reference.PNG)
 
 Right click on the project solution and select "Manage NuGet Packages for solution"
 Add to the solution:
