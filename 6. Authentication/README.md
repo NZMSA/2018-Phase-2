@@ -190,7 +190,7 @@ private getFaceRecognitionResult(image: string) {
 				alert(response.statusText)
 			} else {
 				response.json().then((json: any) => {
-					json.prediction[0]
+					json.predictions[0]
 				})
 			}
 		})
@@ -202,4 +202,15 @@ We need to specify our API endpoint in which we will send our POST request to, u
 
 2. Head to https://www.customvision.ai/ and login to your project. Upload a few selfies of yourself and potentially your friends.
 - Hit the button **Train**.
-- Click on Performance -> Prediction URL, and configure the API-Key and URL endpoint into your app.
+- Click on Performance -> Prediction URL, and configure the **API-Key** and **URL endpoint** into your app.
+
+3. Add the getFaceRecognitionResult to authenticate method and pass in the screenshot we took when the user click login.
+
+```javascript
+// Authenticate
+private authenticate() {
+	const screenshot = this.state.refCamera.current.getScreenshot();
+	this.getFaceRecognitionResult(screenshot);
+}
+```
+
