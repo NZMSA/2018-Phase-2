@@ -88,7 +88,8 @@ Now, let's go  to the "Releases" part of the pipelines and what we want to do is
 
 
 Where it says "Add an artifact" you want to add the latest build that your build pipeline has completed. Select your latest build and leave the rest of the settings default, unless you know what you are doing.
-![Artifact] (https://i.gyazo.com/5057dd240067975068f68c40638c4a96.png "select an artifact")
+
+![Artifact](https://i.gyazo.com/5057dd240067975068f68c40638c4a96.png "select an artifact")
 
 <br>
 Next, you want to select a template. Select the first template shown on the right hand side called Deploy Azure App Service.
