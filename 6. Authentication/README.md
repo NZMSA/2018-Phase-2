@@ -48,8 +48,11 @@ Reference: https://www.npmjs.com/package/react-webcam
 1. In your repository, PowerShell or cmd
 
 ```
-npm install react-webcam
+npm install @types/react-webcam
 ```
+if this thorw an error 'Import sources within a group must be alphabetized.'
+
+Add the following rules to 
 
 2. Only after the user is authenticated then the website should be shown, therefore we will launch the camera on our main page. 
 
@@ -63,7 +66,7 @@ import * as Webcam from "react-webcam";
 - **authenticated: boolean,**   #represent state whether the user is authenticated or not.
 - **refCamera: any,**           #Store a reference pointer to the camera, allow us to invoke a method getScreenShot() later on.
 
-```
+```javascript
 interface IState {
 	currentMeme: any,
 	memes: any[],
@@ -75,7 +78,7 @@ interface IState {
 ```
 and set the states in the constructor as followed.
 
-```
+```javascript
 class App extends React.Component<{}, IState> {
 	constructor(props: any) {
         super(props)
@@ -89,6 +92,66 @@ class App extends React.Component<{}, IState> {
 		}     
 ```
 
+Next we will add the camera and only show it if the user hasn't been authenticated. Add the following code above the header (MyMemeBank) of the main page.
 
+```javascript
+{(!authenticated) ?
+	<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
+		<Webcam
+			audio={false}
+			screenshotFormat="image/jpeg"
+			ref={this.state.refCamera}
+		/>
+		<div className="row nav-row">
+			<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
+		</div>
+	</Modal> : ""}
+```
 
+<details><summary>Screenshot</summary>
+<p>
+<img src="images/3.1.PNG"/>
+</p>
+</details>
+
+The callback and method handler on **this.authenticate** are throwing an error as we haven't implemented the method yet. 
+
+The code above essentially render the camera if state authentiated is false. We assign a reference to <Webcam /> so we can refer to it when we need.  
+
+5. Implement authenticate method.
+```javascript
+// Authenticate
+private authenticate() { 
+	// const screenshot = this.state.refCamera.current.getScreenshot();
+}
+```
+Add the method to **App.tsx**, and here we are able to get to our camera through refCamera reference object we defined and attached to <Webcam />. Invoke getScreenshot(); returns a Base64-encoded image. So when the user click login button, we can retrieve the image taken. 
+
+Bind your method to the state at the top of the file.
+
+```javascript
+this.authenticate = this.authenticate.bind(this)
+```
+6. Skip rendering the main page.
+
+Apply conditional statement to render the mainpage section only if you are authenticated. (After login). Surround the main page section with <div></div> so that we can apply a null
+
+```javascript
+{(authenticated) ?	
+<div>
+	<div className="header-wrapper">
+		<div className="container header">
+			<img src={PatrickLogo} height='40' />&nbsp; My Meme Bank - MSA 2018 &nbsp;
+	<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Meme</div>
+					....
+					
+				<input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
+			</div>
+			<button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
+		</form>
+	</Modal>
+</div>
+: ""}					
+
+```
 
