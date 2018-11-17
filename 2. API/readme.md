@@ -21,7 +21,7 @@ There are a few items you will need to have prior to comencing this tutorial.
     * When installing ensure ASP.NET and web development  is selected      
 * Azure Account
 * .NET Core 2.1 SDK or later
-* Optional - DB Broswer for SQLite
+* Optional - DB Browser for SQLite
 
 ## 2. Model
 
@@ -53,19 +53,19 @@ Open Visual Studio -> New Project -> Web -> .Net Core -> ASP.NET Core Web Applic
  
  Give your project a name, and note the location its being created at.
 
-![image](img/1.png)
+![image](img/1.PNG)
  
 
  Select API and press OK
 
-![image](img/2.png)
+![image](img/2.PNG)
 
  After its finished creating the project, your solution explorer should look something like:
 
- ![image](img/3.png)
+ ![image](img/3.PNG)
 
  Let's go ahead and run this. Note: you'll likely get this message pop up
-  ![image](img/4.png)
+  ![image](img/4.PNG)
   Because earlier we selected HTTPS, its configured to use SSL, and so we need to trust the self-signed cert for this to work. Select "Dont ask me again" and press Yes, and Yes again.
 
  A internet browser should have launched and it should display: 
@@ -82,7 +82,7 @@ Open Visual Studio -> New Project -> Web -> .Net Core -> ASP.NET Core Web Applic
  Go to the website, enter in the json, and press Generate. This will create a pojo which we can copy.
 
   * Back in Visual Studio, right click the Project  Add -> New Folder. 
-  ![image](img/5.png)
+  ![image](img/5.PNG)
   * Name it Models.
   * Right click and Add new Item - Class. Name it whatever you're modeling. In this case our model is of a meme object, so we'll call it MemeItem.class
 * Now within the inner curly braces we'll paste our code from json2csharp.com Note - we dont want to copy `public class RootObject` or the curly braces
@@ -114,7 +114,7 @@ Now on to the magic! As this is an MVC project, we have something called Scaffol
 Right click on the Controllers folder - Add -> new scaffolded Item. Select API (on the left) then select "API Controller with actions, using Entity Framework". Press Add
 
 In the model class, select the model we just added (MemeItem) It will auto populate the controller name. Change this to MemeController. Finally for Data context class, press the plus button and select Add. Press Add again.
-![image](img/7.png)
+![image](img/7.PNG)
 
 This does two main things. It add a MemeItemsController - this specifies the CRUD operations for our API - more on this later.
 
@@ -131,7 +131,7 @@ On to the database side of things. With our current project it uses sql server, 
 We'll need to add Sqlite support by adding a NuGet Package (Essentially a library). To do this, in Visual Studio right click your Solution in Solution Explorer and select Manage NuGet Pakages for Solution...
 
 In the opened tab, select Browse, and paste `Microsoft.EntityFrameworkCore.Sqlite` in the search bar. 
-![image](img/5a.png)
+![image](img/5a.PNG)
 
 Click the Package, check the tick box in for your project and click the install button. select I Agree and wait for the package to install.
 
@@ -202,7 +202,7 @@ namespace MemeBank.Models
 
 ```
 Youll note there are some red error lines after pasting. Click on GetRequiredService and a light bulb with a cross should appear.
-![images](img/7b.png)
+![images](img/7b.PNG)
  Clicking on this will suggest fixes for the error. In this case we can select the first suggestion. This is occur twice and add the follow namespaces to the top of the file:
 ```
 using Microsoft.EntityFrameworkCore;
@@ -328,7 +328,7 @@ We add this code change in our controller as below:
         }
 ```
 
-![image](img/8.png)
+![image](img/8.PNG)
 
 The LINQ is ` var memes = (from m in _context.MemeItem select m.Tags).Distinct();` For those familiar with SQL, it has some similiarities. Basically from our list of meme items we want all the distinct tags.
 
@@ -339,24 +339,24 @@ Due to the performance hit, its normally best to store images in a filesystem ra
 To create blob storage, head over to portal.azure.com and create a new resource search for "Storage account - blob, file, table, queue"
 
 Click create and fill in the details. Some things to note, local storage name needs to be unique. For location its best to choose Austrailia Southeast as its closer to us, and account kind as blob. Click review and create.
-![image](img/10.png)
-![image](img/11.png)
+![image](img/10.PNG)
+![image](img/11.PNG)
 
 Once created, click on "Go to Resource" and click on "Blobs" as per below.
 
-![images](img/12a.png)
+![images](img/12a.PNG)
 
 We need to create a container, which is like a logical grouping, for our images. Click on create and name your container images. Set the public access level to Container.
 
-![image](img/13.png)
+![image](img/13.PNG)
 
 Press the cross on thr right to close the container screen. On the left inner side menu there is a row with "Access Keys".
 
-![image](img/14.png)
+![image](img/14.PNG)
 
  Click on this and store all five fields. Ensure you keep the keys seperate. We will need to use this in our API.
 
-![image](img/15.png)
+![image](img/15.PNG)
 
 We've created our blob storage, now we need to edit our api to receive images and send them to our blob storage.
 
@@ -614,28 +614,28 @@ We have been running our API locally. This means it cant be access on the intern
 
 To do this go to portal.azure.com and create a new resource and select web app.
 
-![image](img/16.png)
+![image](img/16.PNG)
  Enter an app name (it must be unique) and select create.
-![image](img/17.png)
+![image](img/17.PNG)
 
 Once created go to the resource.
 
 On the inner left menu select deployment center. 
-![image](img/18.png)
+![image](img/18.PNG)
 
 Select github (here's hoping you've been committing to github!) Select continue. 
-![image](img/19.png)
+![image](img/19.PNG)
 
 On the following screen select App Service Kudu build server. Select continue. 
 
-![image](img/20.png)
+![image](img/20.PNG)
 Add in your branch and repo details. Select continue. Finally hit finish and wait for the deployment to finish running.
 
-![image](img/21.png)
-![image](img/22.png)
+![image](img/21.PNG)
+![image](img/22.PNG)
 
 You api should now be hosted! (You can find the url on the overview page of the webapp).
 
-![image](img/23.png)
+![image](img/23.PNG)
 
 Congrats you now have a working API on the internet!
