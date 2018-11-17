@@ -161,8 +161,3 @@ public async Task TestPutMemeItemUpdate()
     }
 }
 ```
-## Build status
-[![Build Status](https://dev.azure.com/DipeshTrikam0905/DipeshTrikam/_apis/build/status/dtrikam.2018-Phase-2)](https://dev.azure.com/DipeshTrikam0905/DipeshTrikam/_build/latest?definitionId=1)
-
-### Sources / Further Reading:
-* https://azure.microsoft.com/en-us/blog/announcing-azure-pipelines-with-unlimited-ci-cd-minutes-for-open-source/
