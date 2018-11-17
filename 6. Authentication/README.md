@@ -2,6 +2,31 @@
 
 ## Overview
 
-We will be creating a basic facial recognition authentication using Microsoft Azure custom vision service. This is to demonstrate how you can integrateand utilize Microsoft cognitive services in unique ways. 
+We will be creating a basic facial recognition authentication using Microsoft Azure custom vision service. This is to demonstrate how you can integrate and utilize Microsoft cognitive services in many unique ways.
 
-![customVisionModelChart](/images/customVisionModeChart.svg)
+![customVisionModelChart](images/customVisionModelChart.PNG)
+
+### To do this session.
+1. Create a new feature branch for authentication feature development on GitHub repository.
+2. Set up custom vision project.
+3. Add a camera inegration.
+4. Integrate custom vision model 
+
+
+## 1. Creating a new development branch.
+Your master branch should be a production ready, bug free, and thoroughly tested, therefore we are going to be developing this feature on a seperate development branch.
+
+In your repository, launch powershell or cmd.
+
+```
+$git status
+#On branch master
+$git checkout -b feature/authentication
+$git status
+#On branch feature/authentication
+```
+This creates a new branch locally and switch to it. 
+
+Now we are ready for development. :)
+
+## 2. Setup custom vision project.
