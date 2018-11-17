@@ -48,8 +48,11 @@ Reference: https://www.npmjs.com/package/react-webcam
 1. In your repository, PowerShell or cmd
 
 ```
-npm install react-webcam
+npm install @types/react-webcam
 ```
+if this thorw an error 'Import sources within a group must be alphabetized.'
+
+Add the following rules to 
 
 2. Only after the user is authenticated then the website should be shown, therefore we will launch the camera on our main page. 
 
@@ -94,8 +97,6 @@ Next we will add the camera and only show it if the user hasn't been authenticat
 ```javascript
 {(!authenticated) ?
 	<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
-		<div className="container header">
-		</div>
 		<Webcam
 			audio={false}
 			screenshotFormat="image/jpeg"
@@ -131,3 +132,26 @@ Bind your method to the state at the top of the file.
 ```javascript
 this.authenticate = this.authenticate.bind(this)
 ```
+6. Skip rendering the main page.
+
+Apply conditional statement to render the mainpage section only if you are authenticated. (After login). Surround the main page section with <div></div> so that we can apply a null
+
+```javascript
+{(authenticated) ?	
+<div>
+	<div className="header-wrapper">
+		<div className="container header">
+			<img src={PatrickLogo} height='40' />&nbsp; My Meme Bank - MSA 2018 &nbsp;
+	<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Meme</div>
+					....
+					
+				<input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
+			</div>
+			<button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
+		</form>
+	</Modal>
+</div>
+: ""}					
+
+```
+
