@@ -1,4 +1,4 @@
-# Simple Face Recognition Using Custom Vision Model
+# Simple face recognition using custom vision model
 
 ## Overview
 
