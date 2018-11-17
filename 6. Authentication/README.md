@@ -143,7 +143,7 @@ Apply conditional statement to render the mainpage section only if you are authe
 		<div className="container header">
 			<img src={PatrickLogo} height='40' />&nbsp; My Meme Bank - MSA 2018 &nbsp;
 	<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Meme</div>
-					....
+					....................................
 					
 				<input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
 			</div>
@@ -155,3 +155,8 @@ Apply conditional statement to render the mainpage section only if you are authe
 
 ```
 
+<details><summary>Screenshot</summary>
+<p>
+<img src="images/3.1.PNG"/>
+</p>
+</details>
