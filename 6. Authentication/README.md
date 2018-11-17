@@ -109,6 +109,19 @@ Next we will add the camera and only show it if the user hasn't been authenticat
 
 <details><summary>Screenshot</summary>
 <p>
-
+<img src="images/3.1.PNG"/>
 </p>
 </details>
+
+The callback and method handler on **this.authenticate** are throwing an error as we haven't implemented the method yet. 
+
+The code above essentially render the camera if state authentiated is false. 
+
+5. Implement authenticate method.
+```javascript
+// Authenticate
+private authenticate() { 
+	const screenshot = this.state.refCamera.current.getScreenshot();
+	this.getFaceRecognitionResult(screenshot);
+}
+```
