@@ -30,3 +30,23 @@ This creates a new branch locally and switch to it.
 Now we are ready for development. :)
 
 ## 2. Setup custom vision project.
+
+Navigate to: https://www.customvision.ai/ and sign in with your account.
+
+Enter a project name and description -> Create project.
+
+![customVisionModelChart](images/2.1.PNG)
+
+We will revisit this soon.
+
+## 3. Add camera integration
+In this tutorial we will be integrating a camera into our react app using **react-webcam** package available on npm.
+
+Reference: https://www.npmjs.com/package/react-webcam
+
+1. In your repository, PowerShell or cmd
+
+```
+npm install react-webcam
+```
+
