@@ -105,7 +105,7 @@ After this, you then need to click on the "Deploy Azure App Service" button, as 
 
 Leave the package slot as it is, we will not be changing that.
 ```
-$(System.DefaultWorkingDirectory/**/*.zip)
+$(System.DefaultWorkingDirectory)/**/*.zip
 ```
 
 
