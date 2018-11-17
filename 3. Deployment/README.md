@@ -115,7 +115,7 @@ Now, save the contents of this and go back to your "Pipelines" and click "Deploy
 Go back to "Application Settings" as shown previously, and scroll all the way down to "Virtual Path". There should be a field called  "Physical Path". Change the physical path to this string.
 
 ```
-site\wwwroot\build
+site\www\root\build
 ```
 
 Your website should be up and running now! If the images are not displaying, then you need to replace https to just http in your URL and it should be working.
