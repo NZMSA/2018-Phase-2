@@ -7,7 +7,8 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.0",
     "react-responsive-modal": "^3.5.0",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "3.1.0",
+    "react-webcam": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts-ts start",

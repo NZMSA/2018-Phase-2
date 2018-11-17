@@ -4,13 +4,15 @@ import './App.css';
 import MemeDetail from './components/MemeDetail';
 import MemeList from './components/MemeList';
 import PatrickLogo from './patrick-logo.png';
-
+import * as Webcam from "react-webcam";
 
 interface IState {
 	currentMeme: any,
 	memes: any[],
 	open: boolean,
 	uploadFileList: any,
+	authenticated: boolean,
+	refCamera: any
 }
 
 class App extends React.Component<{}, IState> {
