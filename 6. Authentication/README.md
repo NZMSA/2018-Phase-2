@@ -115,13 +115,13 @@ Next we will add the camera and only show it if the user hasn't been authenticat
 
 The callback and method handler on **this.authenticate** are throwing an error as we haven't implemented the method yet. 
 
-The code above essentially render the camera if state authentiated is false. 
+The code above essentially render the camera if state authentiated is false. We assign a reference to <Webcam /> so we can refer to it when we need.  
 
 5. Implement authenticate method.
 ```javascript
 // Authenticate
 private authenticate() { 
 	const screenshot = this.state.refCamera.current.getScreenshot();
-	this.getFaceRecognitionResult(screenshot);
 }
 ```
+Add the method to **App.tsx**, and here we are able to get to our camera through refCamera reference object we defined and attached to <Webcam />. Invoke getScreenshot(); returns a Base64-encoded image. So when the user click login button, we can retrieve the image taken.
