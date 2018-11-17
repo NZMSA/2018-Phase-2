@@ -1,4 +1,4 @@
-# Phase 2 Training 2018
+# Simple face recognition using custom vision model
 
 ## Overview
 
