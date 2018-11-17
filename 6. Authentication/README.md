@@ -260,4 +260,4 @@ Now test running your application.
 
 The more you train the model, the more accurate it will be.
 
-Good luck with phase-2 now go build some more wild features!
+**Good luck with phase-2 now go build some more wild features!**
