@@ -13,6 +13,7 @@ interface IState {
 	uploadFileList: any,
 	authenticated: boolean,
 	refCamera: any
+	predictionResult: any
 }
 
 class App extends React.Component<{}, IState> {
@@ -25,6 +26,7 @@ class App extends React.Component<{}, IState> {
 			uploadFileList: null,
 			authenticated: false,
 			refCamera: React.createRef(),
+			predictionResult: null
 		}     
 		
 		this.fetchMemes("")
@@ -123,6 +125,14 @@ class App extends React.Component<{}, IState> {
 				} else {
 					response.json().then((json: any) => {
 						console.log(json.predictions[0])
+
+						this.setState({predictionResult: json.predictions[0] })
+						if (this.state.predictionResult.probability > 0.7) {
+							this.setState({authenticated: true})
+						} else {
+							this.setState({authenticated: false})
+						console.log(json.predictions[0].tagName)
+						}
 					})
 				}
 			})
