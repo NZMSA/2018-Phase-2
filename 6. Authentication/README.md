@@ -256,3 +256,8 @@ If the user matches, then we simply set the state authenticated to True, then th
 
 Now test running your application.
 
+**Note:** If you only train your custom vision model with one person, it may recognizes others as that person as well because there's simply a lot of similarity as a person. 
+
+The more you train the model, the more accurate it will be.
+
+Good luck with phase-2 now go build some more wild features!
