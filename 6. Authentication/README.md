@@ -121,7 +121,13 @@ The code above essentially render the camera if state authentiated is false. We 
 ```javascript
 // Authenticate
 private authenticate() { 
-	const screenshot = this.state.refCamera.current.getScreenshot();
+	// const screenshot = this.state.refCamera.current.getScreenshot();
 }
 ```
-Add the method to **App.tsx**, and here we are able to get to our camera through refCamera reference object we defined and attached to <Webcam />. Invoke getScreenshot(); returns a Base64-encoded image. So when the user click login button, we can retrieve the image taken.
+Add the method to **App.tsx**, and here we are able to get to our camera through refCamera reference object we defined and attached to <Webcam />. Invoke getScreenshot(); returns a Base64-encoded image. So when the user click login button, we can retrieve the image taken. 
+
+Bind your method to the state at the top of the file.
+
+```javascript
+this.authenticate = this.authenticate.bind(this)
+```
