@@ -53,6 +53,8 @@ class App extends React.Component<{}, IState> {
 						</div>
 					</Modal> : ""}
 
+
+
 				{(authenticated) ?	
 				<div>
 					<div className="header-wrapper">
@@ -87,19 +89,49 @@ class App extends React.Component<{}, IState> {
 								<label>Image</label>
 								<input type="file" onChange={this.handleFileUpload} className="form-control-file" id="meme-image-input" />
 							</div>
-
 							<button type="button" className="btn" onClick={this.uploadMeme}>Upload</button>
 						</form>
 					</Modal>
 				</div>
 				: ""}
+
 		</div>
 		);
 	}
 
+	
+	// Call custom vision model
+	private getFaceRecognitionResult(image: string) {
+		const url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/6d645e1b-b2f7-443d-b8e5-cd78e683e667/image?iterationId=0f57971f-8c63-4554-ad3f-b49eb6d06c56"
+		if (image === null) {
+			return;
+		}
+		const base64 = require('base64-js');
+		const base64content = image.split(";")[1].split(",")[1]
+		const byteArray = base64.toByteArray(base64content);
+		fetch(url, {
+			body: byteArray,
+			headers: {
+				'cache-control': 'no-cache', 'Prediction-Key': '0c062bedeb8b4d86a49642dab4596449', 'Content-Type': 'application/octet-stream'
+			},
+			method: 'POST'
+		})
+			.then((response: any) => {
+				if (!response.ok) {
+					// Error State
+					alert(response.statusText)
+				} else {
+					response.json().then((json: any) => {
+						console.log(json.predictions[0])
+					})
+				}
+			})
+	}
+
 	// Authenticate
 	private authenticate() {
-		// const screenshot = this.state.refCamera.current.getScreenshot();
+		const screenshot = this.state.refCamera.current.getScreenshot();
+		this.getFaceRecognitionResult(screenshot);
 	}
 
 	// Modal open
