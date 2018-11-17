@@ -132,6 +132,9 @@ Bind your method to the state at the top of the file.
 ```javascript
 this.authenticate = this.authenticate.bind(this)
 ```
+
+Now run the app to see if the camera appears.
+
 6. Skip rendering the main page.
 
 Apply conditional statement to render the mainpage section only if you are authenticated. (After login). Surround the main page section with <div></div> so that we can apply a null
@@ -162,6 +165,8 @@ So if authenticated=true then state change, main page would be rendered instead 
 <img src="images/3.2.PNG"/>
 </p>
 </details>
+
+Run the app again to check if our mainpage has disappeared. 
 
 ## 4. Integrate custom vision model
 
@@ -201,6 +206,9 @@ Examining this getFaceRecognitionResult() method, we are setting up a POST Http 
 We need to specify our API endpoint in which we will send our POST request to, using our API Key retreived from the portal.
 
 2. Head to https://www.customvision.ai/ and login to your project. Upload a few selfies of yourself and potentially your friends.
+
+Tag the photos with the name of a person. So the API returns the result as that person's name.
+
 - Hit the button **Train**.
 - Click on Performance -> Prediction URL, and configure the **API-Key** and **URL endpoint** into your app.
 
@@ -213,4 +221,32 @@ private authenticate() {
 	this.getFaceRecognitionResult(screenshot);
 }
 ```
+
+Run the app, open the developer tool and goes to console -> Click 'Login', you should be able to see the the result of **json.predictions[0]** object output to the console, which contains the name of the _person_, and the _probability_ of the prediction.
+
+4. Authenticate if the user is found. 
+
+In getFaceRecognitionResult we now **this.setState({authenticated: true})** if let say the prediction value returns is above 70% (0.7). And we can trigger different alert banner based on this value as well.
+
+So, add the new states **predictionResult: any** to the interface at the top of the file to store return result, and set the state in the constructor.
+
+Add the following logic to the **getFaceRecognitionResult()**, where the resulting json object is returned from the request.
+
+```javascript
+response.json().then((json: any) => {
+	console.log(json.predictions[0])
+	this.setState({predictionResult: json.predictions[0] })
+	if (this.state.predictionResult.probability > 0.7) {
+		this.setState({authenticated: true})
+	} else {
+		this.setState({authenticated: false})
+		
+	}
+})
+```
+<details><summary>Screenshot</summary>
+<p>
+<img src="images/4.1.PNG"/>
+</p>
+</details>
 
