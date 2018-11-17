@@ -35,7 +35,7 @@ Navigate to: https://www.customvision.ai/ and sign in with your account.
 
 Enter a project name and description -> Create project.
 
-![customVisionModelChart](images/2.1.PNG)
+![customVisionModelChart](images/2.1.png)
 
 We will revisit this soon.
 
