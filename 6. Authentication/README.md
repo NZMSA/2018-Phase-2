@@ -155,8 +155,44 @@ Apply conditional statement to render the mainpage section only if you are authe
 
 ```
 
+So if authenticated=true then state change, main page would be rendered instead of the <Webcam /> component.
+
 <details><summary>Screenshot</summary>
 <p>
 <img src="images/3.2.PNG"/>
 </p>
 </details>
+
+## 4. Integrate custom vision model
+
+Next we will implement an API call method to our custom vision model project endpoint.
+
+```javascript
+// Call custom vision model
+private getFaceRecognitionResult(image: string) {
+	const url = "[API-ENDPOINT]
+	if (image === null) {
+		return;
+	}
+	const base64 = require('base64-js');
+	const base64content = image.split(";")[1].split(",")[1]
+	const byteArray = base64.toByteArray(base64content);
+	fetch(url, {
+		body: byteArray,
+		headers: {
+			'cache-control': 'no-cache', 'Prediction-Key': '[API-KEY]', 'Content-Type': 'application/octet-stream'
+		},
+		method: 'POST'
+	})
+		.then((response: any) => {
+			if (!response.ok) {
+				// Error State
+				alert(response.statusText)
+			} else {
+				response.json().then((json: any) => {
+					json.prediction[0]
+				})
+			}
+		})
+}
+```
