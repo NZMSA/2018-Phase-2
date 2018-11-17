@@ -63,7 +63,7 @@ import * as Webcam from "react-webcam";
 - **authenticated: boolean,**   #represent state whether the user is authenticated or not.
 - **refCamera: any,**           #Store a reference pointer to the camera, allow us to invoke a method getScreenShot() later on.
 
-```
+```javascript
 interface IState {
 	currentMeme: any,
 	memes: any[],
@@ -75,7 +75,7 @@ interface IState {
 ```
 and set the states in the constructor as followed.
 
-```
+```javascript
 class App extends React.Component<{}, IState> {
 	constructor(props: any) {
         super(props)
@@ -89,6 +89,26 @@ class App extends React.Component<{}, IState> {
 		}     
 ```
 
+Next we will add the camera and only show it if the user hasn't been authenticated. Add the following code above the header (MyMemeBank) of the main page.
 
+```javascript
+{(!authenticated) ?
+	<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
+		<div className="container header">
+		</div>
+		<Webcam
+			audio={false}
+			screenshotFormat="image/jpeg"
+			ref={this.state.refCamera}
+		/>
+		<div className="row nav-row">
+			<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
+		</div>
+	</Modal> : ""}
+```
 
+<details><summary>Screenshot</summary>
+<p>
 
+</p>
+</details>
