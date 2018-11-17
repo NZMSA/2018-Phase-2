@@ -250,3 +250,9 @@ response.json().then((json: any) => {
 </p>
 </details>
 
+Here, we are basically checking whether the user matches any tags in our custom vision model. The threshold probability can be set to however you like. 
+
+If the user matches, then we simply set the state authenticated to True, then the page will now render our mainpage instead of the camera components.
+
+Now test running your application.
+
