@@ -165,12 +165,12 @@ So if authenticated=true then state change, main page would be rendered instead 
 
 ## 4. Integrate custom vision model
 
-Next we will implement an API call method to our custom vision model project endpoint.
+1. Next we will implement an API call method to our custom vision model project endpoint.
 
 ```javascript
 // Call custom vision model
 private getFaceRecognitionResult(image: string) {
-	const url = "[API-ENDPOINT]
+	const url = "[API-ENDPOINT]"
 	if (image === null) {
 		return;
 	}
@@ -196,3 +196,10 @@ private getFaceRecognitionResult(image: string) {
 		})
 }
 ```
+Examining this getFaceRecognitionResult() method, we are setting up a POST Http request to our custom vision model. 
+
+We need to specify our API endpoint in which we will send our POST request to, using our API Key retreived from the portal.
+
+2. Head to https://www.customvision.ai/ and login to your project. Upload a few selfies of yourself and potentially your friends.
+- Hit the button **Train**.
+- Click on Performance -> Prediction URL, and configure the API-Key and URL endpoint into your app.
