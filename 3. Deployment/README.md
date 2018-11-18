@@ -115,7 +115,7 @@ Now, save the contents of this and go back to your "Pipelines" and click "Deploy
 Go back to "Application Settings" as shown previously, and scroll all the way down to "Virtual Path". There should be a field called  "Physical Path". Change the physical path to this string.
 
 ```
-site\www\root\s\build
+site\wwwroot\s\build
 ```
 
 This can change, so what I recommend doing is going into your advanced tools, press GO and then a window called KUDU services should open up. From there you should go into debug console and CMD. Go down the path
