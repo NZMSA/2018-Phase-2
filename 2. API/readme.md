@@ -639,3 +639,9 @@ You api should now be hosted! (You can find the url on the overview page of the 
 ![image](img/23.PNG)
 
 Congrats you now have a working API on the internet!
+
+### 9. CORS Warning/Error
+You will likely receieve a CORS error/warning if you attempt to use your newly published api in your web app front end. Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. As your API and front end are hosted on different sites/urls, we need to enable CORS. You can be specific to only enable localhost and the url which you publish your front end, or you can allow any URL to access it. For this workshop we will enable all URLS to call our api. 
+
+In order to do this, we must go to the Azure portal and open the app service which our API is published on. Once there, on the inner left menu scroll down to the menu item CORS. Once opened, there will be an empty text box. Enter '*' (without the quotes). This will enable all the URLs. Now press save at the top. The CORS warning should now be gone.
+![image](img/24.PNG)
