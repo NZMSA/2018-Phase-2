@@ -11,6 +11,7 @@ Note: Just a heads up, this guide may not be extensive. Everything will be cover
 6. LINQ
 7. Adding Azure Blob Storage
 8. Deploying to Azure
+9. CORS Warning/Error
 
 
 ## 1. Before you start 
