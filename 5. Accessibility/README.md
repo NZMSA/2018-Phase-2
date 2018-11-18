@@ -29,7 +29,7 @@ Notice how we are assuming we will be make a fubction called `searchTagByVoice()
 ## Media Stream Recorder
 We will be using Media Stream Recorder in particialar the npm package `msr` so inside your project run.
 ```
-npm i msr
+npm i msr --save
 ```
 
 Follow this link for reference https://www.npmjs.com/package/msr
