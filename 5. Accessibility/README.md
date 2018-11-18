@@ -36,7 +36,7 @@ Follow this link for reference https://www.npmjs.com/package/msr
 
 and include 
 ```
-var MediaStreamRecorder = require('msr');
+import MediaStreamRecorder from 'msr';
 ```
  at the top of your `.tsx` file.
 
