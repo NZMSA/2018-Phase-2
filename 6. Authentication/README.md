@@ -208,7 +208,7 @@ private getFaceRecognitionResult(image: string) {
 				alert(response.statusText)
 			} else {
 				response.json().then((json: any) => {
-					json.predictions[0]
+					console.log(json.predictions[0])
 				})
 			}
 		})
@@ -235,7 +235,7 @@ private authenticate() {
 }
 ```
 
-Run the app, open the developer tool and goes to console -> Click 'Login', you should be able to see the the result of **json.predictions[0]** object output to the console, which contains the name of the _person_, and the _probability_ of the prediction.
+Run the app, open the developer tool and goes to console -> Click 'Login', you should be able to see the the result of **console.log(json.predictions[0])** object output to the console (F12 on Chrome), which contains the name of the _person_, and the _probability_ of the prediction.
 
 4. Authenticate if the user is found. 
 
