@@ -40,6 +40,8 @@ Enter a project name and description -> Create project.
 
 We will revisit this soon.
 
+*If you clone the complete project from the repo, make sure to add in API-Key and API-endpoint to the getFace
+
 ## 3. Add camera integration
 In this tutorial we will be integrating a camera into our react app using **react-webcam** package available on npm.
 
@@ -47,10 +49,24 @@ Reference: https://www.npmjs.com/package/react-webcam
 
 1. In your repository, PowerShell or cmd
 
+Install Webcam component from npm.
+```
+npm install react-webcam
+```
+
+Install TypeScript type definition support for reac-webcam.
+
 ```
 npm install @types/react-webcam
 ```
-if this thorw an error 'Import sources within a group must be alphabetized.'
+
+Then we can now import and use the component in our project.
+
+```
+import * as Webcam from "react-webcam";
+```
+
+if this throws an error 'Import sources within a group must be alphabetized.'
 
 Add the following rules to 
 
@@ -58,9 +74,6 @@ Add the following rules to
 
 3. In App.tsx, we will make the following changes to add the camera. Add an import statement at the top to add webcam module.
 
-```
-import * as Webcam from "react-webcam";
-```
 
 4. We will add 2 new states to this **App.tsx** states interface. 
 - **authenticated: boolean,**   #represent state whether the user is authenticated or not.
