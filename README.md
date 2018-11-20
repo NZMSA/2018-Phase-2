@@ -3,7 +3,7 @@ The official repository and source of knowledge for MSA students taking part in 
 
 # Assignment
 
-Full assignment brief can be found [here](). Submissions close [TBC].
+Full assignment brief can be found [here](https://github.com/NZMSA/2018-Phase-2/blob/master/Assessment/Advanced%20Training%202018.pdf). Submissions close **8am 24th November 2018**.
 
 # Your Device
 

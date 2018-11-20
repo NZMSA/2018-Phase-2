@@ -1,4 +1,4 @@
-# Phase 2 Training 2018
+# Simple facial recognition using custom vision model
 
 ## Overview
 
@@ -9,7 +9,7 @@ We will be creating a basic facial recognition authentication using Microsoft Az
 ### To do this session.
 1. Create a new feature branch for authentication feature development on GitHub repository.
 2. Set up custom vision project.
-3. Add a camera inegration.
+3. Add a camera integration.
 4. Integrate custom vision model 
 
 
@@ -116,7 +116,7 @@ Next we will add the camera and only show it if the user hasn't been authenticat
 
 The callback and method handler on **this.authenticate** are throwing an error as we haven't implemented the method yet. 
 
-The code above essentially render the camera if state authentiated is false. We assign a reference to <Webcam /> so we can refer to it when we need.  
+The code above essentially render the camera if the state authenticated is false. We also assign a reference to <Webcam /> so we can refer to it when we need.  
 
 5. Implement authenticate method.
 ```javascript

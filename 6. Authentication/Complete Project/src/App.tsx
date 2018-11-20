@@ -104,7 +104,7 @@ class App extends React.Component<{}, IState> {
 	
 	// Call custom vision model
 	private getFaceRecognitionResult(image: string) {
-		const url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/6d645e1b-b2f7-443d-b8e5-cd78e683e667/image?iterationId=0f57971f-8c63-4554-ad3f-b49eb6d06c56"
+		const url = "[API-ENDPOINT]"
 		if (image === null) {
 			return;
 		}
@@ -114,7 +114,7 @@ class App extends React.Component<{}, IState> {
 		fetch(url, {
 			body: byteArray,
 			headers: {
-				'cache-control': 'no-cache', 'Prediction-Key': '0c062bedeb8b4d86a49642dab4596449', 'Content-Type': 'application/octet-stream'
+				'cache-control': 'no-cache', 'Prediction-Key': '[API-Key]', 'Content-Type': 'application/octet-stream'
 			},
 			method: 'POST'
 		})
