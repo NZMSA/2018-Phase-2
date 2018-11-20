@@ -150,7 +150,7 @@ Now run the app to see if the camera appears.
 
 6. Skip rendering the main page.
 
-Apply conditional statement to render the mainpage section only if you are authenticated. (After login). Surround the main page section with <div></div> so that we can apply a null
+Apply conditional statement to render the mainpage only if you are authenticated. (After user logged in). Surround the main page section with <div></div> so that we can apply a ternary operator, if authenticated === true then we will render the mainpage.
 
 ```javascript
 {(authenticated) ?	
