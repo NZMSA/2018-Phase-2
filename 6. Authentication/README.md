@@ -40,6 +40,8 @@ Enter a project name and description -> Create project.
 
 We will revisit this soon.
 
+*If you clone the complete project from the repo, make sure to add in API-Key and API-endpoint to the getFace
+
 ## 3. Add camera integration
 In this tutorial we will be integrating a camera into our react app using **react-webcam** package available on npm.
 
@@ -47,10 +49,24 @@ Reference: https://www.npmjs.com/package/react-webcam
 
 1. In your repository, PowerShell or cmd
 
+Install Webcam component from npm.
+```
+npm install react-webcam
+```
+
+Install TypeScript type definition support for reac-webcam.
+
 ```
 npm install @types/react-webcam
 ```
-if this thorw an error 'Import sources within a group must be alphabetized.'
+
+Then we can now import and use the component in our project.
+
+```
+import * as Webcam from "react-webcam";
+```
+
+if this throws an error 'Import sources within a group must be alphabetized.'
 
 Add the following rules to 
 
@@ -58,9 +74,6 @@ Add the following rules to
 
 3. In App.tsx, we will make the following changes to add the camera. Add an import statement at the top to add webcam module.
 
-```
-import * as Webcam from "react-webcam";
-```
 
 4. We will add 2 new states to this **App.tsx** states interface. 
 - **authenticated: boolean,**   #represent state whether the user is authenticated or not.
@@ -137,7 +150,7 @@ Now run the app to see if the camera appears.
 
 6. Skip rendering the main page.
 
-Apply conditional statement to render the mainpage section only if you are authenticated. (After login). Surround the main page section with <div></div> so that we can apply a null
+Apply conditional statement to render the mainpage only if you are authenticated. (After user logged in). Surround the main page section with <div></div> so that we can apply a ternary operator, if authenticated === true then we will render the mainpage.
 
 ```javascript
 {(authenticated) ?	
@@ -195,7 +208,7 @@ private getFaceRecognitionResult(image: string) {
 				alert(response.statusText)
 			} else {
 				response.json().then((json: any) => {
-					json.predictions[0]
+					console.log(json.predictions[0])
 				})
 			}
 		})
@@ -222,7 +235,7 @@ private authenticate() {
 }
 ```
 
-Run the app, open the developer tool and goes to console -> Click 'Login', you should be able to see the the result of **json.predictions[0]** object output to the console, which contains the name of the _person_, and the _probability_ of the prediction.
+Run the app, open the developer tool and goes to console -> Click 'Login', you should be able to see the the result of **console.log(json.predictions[0])** object output to the console (F12 on Chrome), which contains the name of the _person_, and the _probability_ of the prediction.
 
 4. Authenticate if the user is found. 
 
