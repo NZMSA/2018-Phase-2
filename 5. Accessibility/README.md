@@ -167,9 +167,3 @@ textBox.value = (res.DisplayText as string).slice(0, -1)
 
 #### Done
 
-This will be removed in 2 days so copy and paste this
-
-Key 1: ac4a5739b2fa4d749b080822e01c167a
-
-Key 2: b93f4ea4fc954fe1a609e88d4fc07ac2
-
