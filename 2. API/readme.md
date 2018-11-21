@@ -333,6 +333,32 @@ We add this code change in our controller as below:
 
 The LINQ is ` var memes = (from m in _context.MemeItem select m.Tags).Distinct();` For those familiar with SQL, it has some similiarities. Basically from our list of meme items we want all the distinct tags.
 
+So how do we search by meme tag? There are a couple things we need to do. Firstly, its a new endpoint, so we need a new method to add. As we will be specifying what tag to search, we need to accept it as a parameter. Finally, we need to a) get all the items, then b) return all the items which match the requested tag. Then we need to return the list. 
+
+```
+        // GET: api/Meme/Tags
+        
+        [HttpGet]
+        [Route("tag")]
+        public async Task<List<MemeItem>> GetTagsItem( [FromQuery] string tags)
+        {
+            var memes = from m in _context.MemeItem
+                         select m; //get all the memes
+
+
+            if (!String.IsNullOrEmpty(tags)) //make sure user gave a tag to search
+            {
+                memes = memes.Where(s => s.Tags.ToLower().Equals(tags.ToLower())); // find the entries with the search tag and reassign
+            }
+
+            var returned = await memes.ToListAsync(); //return the memes
+
+            return returned;
+        }
+
+```
+![image](img/8a.PNG)
+
 ### 7. Blob Storage
 
 Due to the performance hit, its normally best to store images in a filesystem rather than the database itself. In order for us to do this we will be using Azure Blob Storage and will be storing the file path to the uploaded image in our database.
