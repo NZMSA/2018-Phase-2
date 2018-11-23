@@ -54,7 +54,7 @@ Install Webcam component from npm.
 npm install react-webcam
 ```
 
-Install TypeScript type definition support for reac-webcam.
+Install TypeScript type definition support for react-webcam.
 
 ```
 npm install @types/react-webcam
@@ -108,17 +108,23 @@ class App extends React.Component<{}, IState> {
 Next we will add the camera and only show it if the user hasn't been authenticated. Add the following code above the header (MyMemeBank) of the main page.
 
 ```javascript
-{(!authenticated) ?
-	<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
-		<Webcam
-			audio={false}
-			screenshotFormat="image/jpeg"
-			ref={this.state.refCamera}
-		/>
-		<div className="row nav-row">
-			<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
-		</div>
-	</Modal> : ""}
+public render() {
+	const { open } = this.state;
+	const { authenticated } = this.state
+	return (
+	
+		<div>
+		{(!authenticated) ?
+			<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
+				<Webcam
+					audio={false}
+					screenshotFormat="image/jpeg"
+					ref={this.state.refCamera}
+				/>
+				<div className="row nav-row">
+					<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
+				</div>
+			</Modal> : ""}
 ```
 
 <details><summary>Screenshot</summary>
